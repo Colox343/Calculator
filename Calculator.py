@@ -100,10 +100,7 @@ class Calculator:
             stop = True
             for x in self.operations:
                 if x=="*" or x=="/":
-                    try:            #registeration of the two numbers to process.
-                        n1 = int(self.operations[self.operations.index(x)-1])
-                    except:
-                        n1 = float(self.operations[self.operations.index(x) - 1])
+                    n1 = float(self.operations[self.operations.index(x) - 1])    #registeration of the two numbers to process.
                     n2 = int(self.operations[self.operations.index(x)+1])
                     if x=="*":              #preformance of the operation
                         self.operations[self.operations.index(x)-1] = n1 * n2
@@ -113,8 +110,8 @@ class Calculator:
                     self.operations.remove(x)
                     stop = False
         while len(self.operations)>1:       #cycle for the additions and subtractions
-            n1 = int(self.operations[0])
-            n2 = int(self.operations[2])
+            n1 = float(self.operations[0])
+            n2 = float(self.operations[2])
             if self.operations[1]=="-":
                 self.operations[0] = n1 - n2
             else:
